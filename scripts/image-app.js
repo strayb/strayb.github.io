@@ -33,13 +33,13 @@
       }
     };
   }
+    var worker1 = new Worker('scripts/worker.js');
 
   function manipulateImage(type) {
     var a, b, g, i, imageData, j, length, pixel, r, ref;
     imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     // Hint! This is where you should post messages to the web worker and
     // receive messages from the web worker.
-    var worker1 = new Worker('scripts/worker.js');
     worker1.postMessage({'imageData':imageData,'type':type});
     worker1.onmessage = function(e){
         toggleButtonsAbledness();
