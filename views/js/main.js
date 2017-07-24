@@ -319,47 +319,47 @@ for (var i = 2; i < 100; i++) {
 
 // 背景披萨滚动时调用函数的次数和
 // 由updatePositions()函数使用，用来决定什么时候记录平均帧率
-var frame = 0;
+// var frame = 0;
 // 记录滚动时背景滑窗披萨移动的每10帧的平均帧率
-function logAverageFrame(times) {   // times参数是updatePositions()由User Timing得到的测量数据
-  var numberOfEntries = times.length;
-  var sum = 0;
-  for (var i = numberOfEntries - 1; i > numberOfEntries - 11; i--) {
-    sum = sum + times[i].duration;
-  }
-  console.log("Average scripting time to generate last 10 frames: " + sum / 10 + "ms");
-}
+// function logAverageFrame(times) {   // times参数是updatePositions()由User Timing得到的测量数据
+//   var numberOfEntries = times.length;
+//   var sum = 0;
+//   for (var i = numberOfEntries - 1; i > numberOfEntries - 11; i--) {
+//     sum = sum + times[i].duration;
+//   }
+//   console.log("Average scripting time to generate last 10 frames: " + sum / 10 + "ms");
+// }
 // 下面的关于背景滑窗披萨的代码来自于Ilya的demo:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 // 基于滚动条位置移动背景中的披萨滑窗
-function updatePositions() {
-  frame++;
-  // window.performance.mark("mark_start_frame");
-  var items = document.querySelectorAll('.mover');
-  //*****************
-  //*****************get scrollTop from loop. but it's better to remove this function.
-  //*****************
-  var scrollTop1 = document.body.scrollTop;
-  for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin(( scrollTop1 / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-    // console.log(items[i].style.left);
-  }
-  // 再次使用User Timing API。这很值得学习
-  // 能够很容易地自定义测量维度
-  // window.performance.mark("mark_end_frame");
-  // window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
-  // if (frame % 10 === 0) {
-  //   var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
-  //   logAverageFrame(timesToUpdatePosition);
-  // }
-  //*****************
-  //*****************put updatePositions into requestAnimationFrame
-  //*****************
-  requestAnimationFrame(updatePositions);
-}
+// function updatePositions() {
+//   frame++;
+//   // window.performance.mark("mark_start_frame");
+//   var items = document.querySelectorAll('.mover');
+//   //*****************
+//   //*****************get scrollTop from loop. but it's better to remove this function.
+//   //*****************
+//   var scrollTop1 = document.body.scrollTop;
+//   for (var i = 0; i < items.length; i++) {
+//     var phase = Math.sin(( scrollTop1 / 1250) + (i % 5));
+//     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+//     // console.log(items[i].style.left);
+//   }
+//   // 再次使用User Timing API。这很值得学习
+//   // 能够很容易地自定义测量维度
+//   // window.performance.mark("mark_end_frame");
+//   // window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
+//   // if (frame % 10 === 0) {
+//   //   var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
+//   //   logAverageFrame(timesToUpdatePosition);
+//   // }
+//   //*****************
+//   //*****************put updatePositions into requestAnimationFrame
+//   //*****************
+//   requestAnimationFrame(updatePositions);
+// }
 // 在页面滚动时运行updatePositions函数
-window.addEventListener('scroll', requestAnimationFrame(updatePositions));
+// window.addEventListener('scroll', requestAnimationFrame(updatePositions));
 // 当页面加载时生成披萨滑窗
 // window.performance.mark("mark_start_DOMLoaded");
 document.addEventListener('DOMContentLoaded', function() {
@@ -371,11 +371,11 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-    elem.basicLeft = (i % cols) * s;
+    elem.style.left = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
-  updatePositions();
+  // updatePositions();
 });
 // window.performance.mark("mark_end_DOMLoaded");
 // window.performance.measure("measure_DOMLoaded","mark_start_DOMLoaded","mark_end_DOMLoaded");
