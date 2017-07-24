@@ -362,21 +362,21 @@ for (var i = 2; i < 100; i++) {
 // window.addEventListener('scroll', requestAnimationFrame(updatePositions));
 // 当页面加载时生成披萨滑窗
 // window.performance.mark("mark_start_DOMLoaded");
-document.addEventListener('DOMContentLoaded', function() {
-  var cols = 8;
-  var s = 256;
-  for (var i = 0; i < 32; i++) {
-    var elem = document.createElement('img');
-    elem.className = 'mover';
-    elem.src = "images/pizza.png";
-    elem.style.height = "100px";
-    elem.style.width = "73.333px";
-    elem.style.left = (i % cols) * s;
-    elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
-  }
-  // updatePositions();
-});
+// document.addEventListener('DOMContentLoaded', function() {
+//   var cols = 8;
+//   var s = 256;
+//   for (var i = 0; i < 32; i++) {
+//     var elem = document.createElement('img');
+//     elem.className = 'mover';
+//     elem.src = "images/pizza.png";
+//     elem.style.height = "100px";
+//     elem.style.width = "73.333px";
+//     elem.style.left = (i % cols) * s;
+//     elem.style.top = (Math.floor(i / cols) * s) + 'px';
+//     document.querySelector("#movingPizzas1").appendChild(elem);
+//   }
+//   // updatePositions();
+// });
 // window.performance.mark("mark_end_DOMLoaded");
 // window.performance.measure("measure_DOMLoaded","mark_start_DOMLoaded","mark_end_DOMLoaded");
 // var timeToDOM = window.performance.getEntriesByName("measure_DOMLoaded");
