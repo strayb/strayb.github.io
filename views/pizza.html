@@ -96,7 +96,15 @@
     </div>
     <div id="footer" class="col-md-12">Thanks for visiting! &copy; 2014 Udacity</div>
   </div>
-  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript">
+    window.onload = function(){
+      var scriptAfterLoad = document.createElement('script');
+      scriptAfterLoad.src = "js/main.js";
+      var footer = document.getElementById('footer');
+      footer.appendChild(scriptAfterLoad);
+    }
+  </script>
+  <!-- <script type="text/javascript" src="js/main.js"></script> -->
 </body>
 </html>
 </html>
