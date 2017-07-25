@@ -9,9 +9,9 @@
     .centered {text-align: center;}
     #pizzaSize {font-weight: 800;}
     .mover {position: fixed;width: 256px;z-index: -1;}
-    .randomPizzaContainer {float: left;display: flex;}
+    .randomPizzaContainer {float: left;display: flex;will-change:transform;}
     .randomPizzaContainer:after {content: "";display: table;clear:both;}
-    .container {background-color: rgba(240, 60, 60, 0.8); will-change:transform;}
+    .container {background-color: rgba(240, 60, 60, 0.8); }
     
     img{vertical-align:middle;}
     .img-responsive{display:block;width:100% \9;max-width:100%;height:auto;}
@@ -262,7 +262,7 @@
     .medium{width:390px;}
     .large{width: 468px;}
   </style>
-  <!-- <link rel="stylesheet" href="css/bootstrap-grid.css"> -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div class="container">
