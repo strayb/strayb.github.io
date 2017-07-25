@@ -291,7 +291,7 @@ var resizePizzas = function(size) {
     }
     for(var i = 0;i<pizzaContainer.length;i++){
       pizzaContainer[i].style.width = pizzaSize;
-      console.log(pizzaContainer[i].className);
+      // console.log(pizzaContainer[i].className);
     }
   }
   changePizzaSizes(size);
