@@ -72,10 +72,10 @@
 4.把非必要的fonts字体请求去掉
 5.去除一些注释和空格，来压缩html和js文件
 #####B、对pizza.html的优化
-1.**main.js-'滚动'** 删除main.js对性能影响大的，非必要功能--滚动页面时，pizza左右移动
+1.**main.js-'mover'** 把updatePositions放到requestAnimationFrame里，把scrollTop从loop里取出，  
+减少生成的移动pizza
 2.**main.js-'pizza大小变化'** 减少main.js对改变pizza大小的计算，直接给予各个变化的百分比
 3.**main.js** 删除监测代码，删除不必要注释和空格，压缩main.js代码
-4.因为在页面底部加入pizza非首屏显示，顾在页面加载完成后再加载main.js
-5.因为没用共用的css文件，所以把css样式都放到html里，减少http请求
-6.压缩html文件、由于图片并不用显示这么大，固缩小图片分辨率并压缩图片
-7.由于input[type=range]这个标签在我的小屏iPhone里很难用，所以我加了input[type=radio]方便点击
+4.因为没用共用的css文件，所以把css样式都放到html里，减少http请求
+5.压缩html文件、由于图片并不用显示这么大，固缩小图片分辨率并压缩图片
+6.由于input[type=range]这个标签在我的小屏iPhone里很难用，所以我加了input[type=radio]方便点击
