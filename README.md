@@ -55,3 +55,27 @@
 
 * <a href="http://getbootstrap.com/css/">Bootstrap CSS</a>
 * <a href="http://getbootstrap.com/components/">Bootstrap组件</a>
+
+### 作业提交
+
+####一、程序运行步骤
+1.请双击index.html文件或直接访问<http://strayb.github.io>
+2.点击页面的*Cam's Pizzeria* 进入 pizza页面
+3.上下拖动页面测试页面的流畅度
+4.在*Our Pizzas!*下，缩放pizza的大小，测试流畅度
+
+####二、优化概述
+#####A、对index.html的优化
+1.把style.css的样式直接放到index.html里，这样就可以减少一个http请求
+2.压缩图片大小，减少content的download时间，优化用户体验
+3.把非CRP的print.css做媒体匹配, perfmatters.js,analytics.js做异步请求
+4.把非必要的fonts字体请求去掉
+5.去除一些注释和空格，来压缩html和js文件
+#####B、对pizza.html的优化
+1.**main.js-'滚动'** 删除main.js对性能影响大的，非必要功能--滚动页面时，pizza左右移动
+2.**main.js-'pizza大小变化'** 减少main.js对改变pizza大小的计算，直接给予各个变化的百分比
+3.**main.js** 删除监测代码，删除不必要注释和空格，压缩main.js代码
+4.因为在页面底部加入pizza非首屏显示，顾在页面加载完成后再加载main.js
+5.因为没用共用的css文件，所以把css样式都放到html里，减少http请求
+6.压缩html文件、由于图片并不用显示这么大，固缩小图片分辨率并压缩图片
+7.由于input[type=range]这个标签在我的小屏iPhone里很难用，所以我加了input[type=radio]方便点击
