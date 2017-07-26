@@ -252,7 +252,7 @@ var pizzaElementGenerator = function(i) {
 };
 // 当网站中"Our Pizzas"的滑窗部分移动时调用resizePizzas(size)函数
 var resizePizzas = function(size) {
-  window.performance.mark("mark_start_resize");   // User Timing API 函数
+  // window.performance.mark("mark_start_resize");   // User Timing API 函数
   // 改变滑窗前披萨的尺寸值
   function changeSliderLabel(size) {
     switch(size) {
@@ -296,17 +296,17 @@ var resizePizzas = function(size) {
   }
   changePizzaSizes(size);
   // User Timing API 太棒了
-  window.performance.mark("mark_end_resize");
-  window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
-  var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
-  console.log("Time to resize pizzas: " + timeToResize[timeToResize.length-1].duration + "ms");
+  // window.performance.mark("mark_end_resize");
+  // window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
+  // var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
+  // console.log("Time to resize pizzas: " + timeToResize[timeToResize.length-1].duration + "ms");
 };
 // window.performance.mark("mark_start_generating"); // 收集timing数据
 // 这个for循环在页面加载时创建并插入了所有的披萨
-for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
-  pizzasDiv.appendChild(pizzaElementGenerator(i));
-}
+// for (var i = 2; i < 100; i++) {
+//   var pizzasDiv = document.getElementById("randomPizzas");
+//   pizzasDiv.appendChild(pizzaElementGenerator(i));
+// }
 
 // 使用User Timing API。这里的测量数据告诉了你生成初始的披萨用了多长时间
 // window.performance.mark("mark_end_generating");
@@ -373,6 +373,10 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
   // updatePositions();
+  for (var i = 2; i < 100; i++) {
+    var pizzasDiv = document.getElementById("randomPizzas");
+    pizzasDiv.appendChild(pizzaElementGenerator(i));
+  }
 });
 // window.performance.mark("mark_end_DOMLoaded");
 // window.performance.measure("measure_DOMLoaded","mark_start_DOMLoaded","mark_end_DOMLoaded");
